@@ -14,7 +14,13 @@ const connectParams = {
 mongoose.connect(db.url,connectParams,(err)=>{
     if(err) return console.log(err);
     console.log('Connect success');
+    app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        next();
+      });
+    
     app.use(bodyParser.urlencoded({extended:true}));
+    app.use(bodyParser.json());
     app.use('/',noteRoutes);
 
     app.get('*',(req,res)=>{

@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 router.get('/notes',async (req,res)=>{
     try{
         let notes = await Note.find();
+        
         res.send({
-            notes
+            notes:Array.from(notes)
         })
 
     }catch(e){
@@ -14,6 +15,7 @@ router.get('/notes',async (req,res)=>{
 })
 
 router.post('/addNote',(req,res)=>{
+       
     let note = new Note({
         _id: new mongoose.Types.ObjectId(),
         title:req.body.title,

@@ -4,8 +4,8 @@ export default class Note extends Component{
     render(){
         return(
             <article>
-                <h2>Note Title</h2>
-                <p>Note Body</p>
+                <h2>{this.props.title}</h2>
+                <p>{this.props.body}</p>
             </article>
         )
     }
