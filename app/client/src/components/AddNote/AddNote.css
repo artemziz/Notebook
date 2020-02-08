@@ -1,0 +1,8 @@
+.AddNote-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.AddNote-button{
+    margin-right: 0;
+}

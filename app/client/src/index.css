@@ -1,1 +1,7 @@
+@import '../node_modules/normalize.css/normalize.css';
+@import '../node_modules/material-design-lite/material.min.css';
+@import './common.css';
+@import './components/Note/Note.css';
+@import './components/App/App.css';
+@import './components/AddNote/AddNote.css';
 
