@@ -10,7 +10,8 @@ router.get('/notes',async (req,res)=>{
         })
 
     }catch(e){
-        console.log(e);       
+        console.log(e);
+               
     }
 })
 
@@ -41,6 +42,8 @@ router.post('/editNote',(req,res)=>{
 })
 router.post('/deleteNote',(req,res)=>{
     Note.findByIdAndDelete(req.body._id,(err)=>{
+        console.log(req.body._id);
+        
         if(err) return console.log(err);
         console.log('Delete Successfully');  
         res.redirect('/notes');     

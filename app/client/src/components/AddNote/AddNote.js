@@ -14,24 +14,24 @@ export default class AddNote extends Component{
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
     }
     
-    handleSubmit(event){
-        fetch('/addNote',{
-            method:"POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify({
-                title:this.state.title,
-                body:this.state.body
+    async handleSubmit(event){
+        try{
+            await fetch('/addNote',{
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    title:this.state.title,
+                    body:this.state.body
+                })
             })
-        })
-        .catch(err=>{
+        }catch(err){
             console.log(err);
-             
-        })
-        .finally(()=>{
+            
+        }finally{
             event.preventDefault();
-        })                
+        }                    
     }
     handleChangeTitle(event){
         this.setState({
