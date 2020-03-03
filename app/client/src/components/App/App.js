@@ -19,8 +19,8 @@ export default class App extends Component{
             hideForm:!this.state.hideForm
         })
     }
-    async componentDidMount(){  
-        try{
+     loadNotes = async() =>{
+        try {
             let res = await fetch('/notes',{
                 method:"GET",             
             });
@@ -32,6 +32,9 @@ export default class App extends Component{
         }catch(err){
             console.log(err);           
         }
+    }
+    async componentDidMount(){  
+        this.loadNotes();
           
     }
     render(){
@@ -53,7 +56,7 @@ export default class App extends Component{
             <div className='container App'>
             <h1 className='App-logo'>NoteBook</h1>
                 {this.state.notes.map((note,index)=>{
-                    return <Note key={note._id} _id={note._id} title={note.title} body={note.body}/>
+                    return <Note  key={note._id} _id={note._id} title={note.title} body={note.body}/>
                 })} 
                 {this.state.hideForm&&(
                     <button onClick={this.hideForm} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">

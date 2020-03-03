@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Note = require('../models/note');
 const mongoose = require('mongoose');
+
 router.get('/notes',async (req,res)=>{
     try{
         let notes = await Note.find();
@@ -40,7 +41,7 @@ router.post('/editNote',(req,res)=>{
         })
 
 })
-router.post('/deleteNote',(req,res)=>{
+router.post('/deleteNote',(req ,res)=>{
     Note.findByIdAndDelete(req.body._id,(err)=>{
         console.log(req.body._id);
         
